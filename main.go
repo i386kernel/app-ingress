@@ -8,7 +8,7 @@ import (
 )
 
 func RouteHandler() {
-	port := ":8080"
+	port := ":80"
 	r := mux.NewRouter()
 	r.HandleFunc("/", LoginHandler)
 	fmt.Println("Serving Port = ", port)
