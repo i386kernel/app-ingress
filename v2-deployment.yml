@@ -30,4 +30,4 @@ spec:
     app: ingress-test-v2
   ports:
     - port: 8080
-  type: NodePort
+  type: LoadBalancer
