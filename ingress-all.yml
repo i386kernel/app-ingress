@@ -14,18 +14,18 @@ spec:
               service:
                 name: ingress-test-v1
                 port:
-                  number: 8080
+                  number: 80
           - path: /v2
             pathType: Prefix
             backend:
               service:
                 name: ingress-test-v2
                 port:
-                  number: 8080
+                  number: 80
           - path: /v3
             pathType: Prefix
             backend:
               service:
                 name: ingress-test-v3
                 port:
-                  number: 8080
+                  number: 80
