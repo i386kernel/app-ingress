@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-test-v1
+  labels:
+    app: ingress-test-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: ingress-test-v1
+      labels:
+        app: ingress-test-v1
+    spec:
+      containers:
+        - name: ingress-test-v1
+          image: lnanjangud653/ingress-test:v1
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: ingress-test-v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-test-v1
+spec:
+  selector:
+    app: ingress-test-v1
+  ports:
+    - port: 8080
+  type: NodePort
