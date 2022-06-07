@@ -10,7 +10,7 @@ import (
 func RouteHandler() {
 	port := ":80"
 	r := mux.NewRouter()
-	r.HandleFunc("/", LoginHandler)
+	r.HandleFunc("/v3", LoginHandler)
 	fmt.Println("Serving Port = ", port)
 	if err := http.ListenAndServe(port, r); err != nil {
 		log.Fatal(err)

@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: intelfo-ingress
+spec:
+  ingressClassName: avi-lb
+  rules:
+    - host: intelfo.tanzu.lab
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: foapi-k1-portal-service
+                port:
+                  number: 80
+          - path: /cbxq
+            pathType: Prefix
+            backend:
+              service:
+                name: foui-k1-portal-ui-fo
+                port:
+                  number: 80
+          - path: /quantum/api
+            pathType: Prefix
+            backend:
+              service:
+                name: k1-service
+                port:
+                  number: 80
+          - path: /olive/publisher
+            pathType: Prefix
+            backend:
+              service:
+                name: foapi-k1-portal-service
+                port:
+                  number: 80
